@@ -39,7 +39,7 @@ def action_wrapper(hermes, intentMessage, conf):
 
     Refer to the documentation for further details. 
     """ 
-    number = snips.intent.number[0] if snips.intent.number else None
+    number = intentMessage.number[0] if intentMessage.number else None
 
     if len(intentMessage.slots.house_room):
     	for room in intentMessage.slots.house_room:
