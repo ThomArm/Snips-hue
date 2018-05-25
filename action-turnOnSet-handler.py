@@ -41,8 +41,8 @@ def action_wrapper(hermes, intentMessage, conf):
     """ 
     number = snips.intent.number[0] if snips.intent.number else None
 
-    if len(snips.intent.house_room):
-    	for room in snips.intent.house_room:
+    if len(intentMessage.slots.house_room):
+    	for room in intentMessage.slots.house_room:
     		snips.skill.light_on_set(None, number, room)
    	else:
    		snips.skill.light_on_set(None, number, None)
