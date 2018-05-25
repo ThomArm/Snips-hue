@@ -39,17 +39,18 @@ def action_wrapper(hermes, intentMessage, conf):
 
     Refer to the documentation for further details. 
     """ 
-    if len(snips.intent.house_room):
-    	for room in snips.intent.house_room:
-    		snips.skill.light_down(20, room)
+    if len(intentMessage.slots.house_room):
+    	for room in intentMessage.slots.house_room:
+    		snipshue.light_down(20, room)
     else:
-        snips.skill.light_down(20, None)
+        	snipshue.light_down(20, None)
 
     current_session_id = intentMessage.session_id
     hermes.publish_end_session(current_session_id, result_sentence)
 
 
 if __name__ == "__main__":
+    snipshue= SnipsHue("192.168.1.84","YFuLloeVWUTdSO8IJKZi2OYXZJKsEFPAfats0Fq2")
     with Hermes("localhost:1883") as h:
         h.subscribe_intent("lightsTurnDown", subscribe_intent_callback) \
 .start()
