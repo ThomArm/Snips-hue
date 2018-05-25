@@ -55,7 +55,7 @@ def action_wrapper(hermes, intentMessage, conf):
 
 if __name__ == "__main__":
     snipshue= SnipsHue("192.168.1.84","YFuLloeVWUTdSO8IJKZi2OYXZJKsEFPAfatS0Fq2")
-    snipshue.light_on_set("orange",254,"chambre")
+    #snipshue.light_on_set("orange",254,"chambre")
     with Hermes("localhost:1883") as h:
         h.subscribe_intent("lightsTurnOnSet", subscribe_intent_callback) \
 .start()
