@@ -43,15 +43,19 @@ def action_wrapper(hermes, intentMessage, conf):
 
     if len(intentMessage.slots.house_room):
     	for room in intentMessage.slots.house_room:
-    		snips.skill.light_on_set(None, number, room)
+    		#snips.skill.light_on_set(None, number, room)
+		snipshue.light_on_set(None, number, room)
    	else:
-   		snips.skill.light_on_set(None, number, None)
+   		#snips.skill.light_on_set(None, number, None)
+		snipshue.light_on_set(None, number, None)
 
     current_session_id = intentMessage.session_id
     hermes.publish_end_session(current_session_id, result_sentence)
 
 
 if __name__ == "__main__":
+    snipshue= SnipsHue("192.168.1.84","YFuLloeVWUTdSO8IJKZi2OYXZJKsEFPAfatS0Fq2")
+    snipshue.light_on_set("orange",254,"chambre")
     with Hermes("localhost:1883") as h:
         h.subscribe_intent("lightsTurnOnSet", subscribe_intent_callback) \
 .start()
