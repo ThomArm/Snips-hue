@@ -39,15 +39,15 @@ def action_wrapper(hermes, intentMessage, conf):
 
     Refer to the documentation for further details. 
     """ 
-    number = intentMessage.number[0] if intentMessage.number else None
+    #number = intentMessage.number[0] if intentMessage.number else None
 
     if len(intentMessage.slots.house_room):
     	for room in intentMessage.slots.house_room:
     		#snips.skill.light_on_set(None, number, room)
-		snipshue.light_on_set(None, number, room)
+		    snipshue.light_on_set("orange", 254, room)
    	else:
    		#snips.skill.light_on_set(None, number, None)
-		snipshue.light_on_set(None, number, None)
+		snipshue.light_on_set("orange", 254, None)
 
     current_session_id = intentMessage.session_id
     hermes.publish_end_session(current_session_id, result_sentence)

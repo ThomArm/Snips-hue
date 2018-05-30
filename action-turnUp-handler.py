@@ -43,7 +43,7 @@ def action_wrapper(hermes, intentMessage, conf):
     	for room in intentMessage.house_room:
     		snipshue.light_up(20, room)
     else:
-        	snipshue.light_up(20, None)
+        snipshue.light_up(20, None)
 
     current_session_id = intentMessage.session_id
     hermes.publish_end_session(current_session_id, result_sentence)
