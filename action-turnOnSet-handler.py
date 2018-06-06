@@ -44,13 +44,16 @@ def action_wrapper(hermes, intentMessage, conf):
     if len(intentMessage.slots.house_room):
     	for room in intentMessage.slots.house_room:
     		#snips.skill.light_on_set(None, number, room)
-		snipshue.light_on_set("orange", 254, room)
+		    #snipshue.light_on_set("orange", 254, room)
+            snipshue.light_on_set("orange", 254, "chambre")
    	else:
    		#snips.skill.light_on_set(None, number, None)
-		snipshue.light_on_set("orange", 254, None)
+		#snipshue.light_on_set("orange", 254, None)
+        snipshue.light_on_set("orange", 254, "chambre")
+
 
     current_session_id = intentMessage.session_id
-    result_sentence="Light on in the bedroom"
+    result_sentence="Lumiere allume dans la chambre"
     hermes.publish_end_session(current_session_id, result_sentence)
 
 

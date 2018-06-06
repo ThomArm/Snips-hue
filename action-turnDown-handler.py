@@ -41,11 +41,13 @@ def action_wrapper(hermes, intentMessage, conf):
     """ 
     if len(intentMessage.slots.house_room):
     	for room in intentMessage.slots.house_room:
-    		snipshue.light_down(20, room)
+    		#snipshue.light_down(20, room)
+            snipshue.light_down(20, "chambre")
     else:
         snipshue.light_down(20, None)
 
     current_session_id = intentMessage.session_id
+    result_sentence="Luminosite diminue dans la chambre"
     hermes.publish_end_session(current_session_id, result_sentence)
 
 
